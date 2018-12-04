@@ -1,17 +1,32 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-// UNCOMMENT THE DATABASE YOU'D LIKE TO USE
+const express = require('express');
+const bodyParser = require('body-parser');
 // var items = require('../database-mysql');
-// var items = require('../database-mongo');
+const items = require('../database-mongo');
+const axios = require('axios');
+const api = require('../config.js');
 
+const port = 3000;
 var app = express();
 
-// UNCOMMENT FOR REACT
-// app.use(express.static(__dirname + '/../react-client/dist'));
 
-// UNCOMMENT FOR ANGULAR
-// app.use(express.static(__dirname + '/../angular-client'));
-// app.use(express.static(__dirname + '/../node_modules'));
+app.use(express.static(__dirname + '/../react-client/dist'));
+
+
+app.get(`/attractions/:city`, (req, res) => {
+  axios({
+    method: 'GET',
+    url: `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${req.params.city}+point+of+interest&key=${api.GOOGLE_API_KEY}`
+  })
+    .then(data => {
+      console.log('server data>>>>>>>', data)
+      res.status(200).send(data.data.results);
+    })
+    .catch(error => {
+      console.log('server error>>>>>>>', error)
+      res.status(500).send(error);
+    });
+});
+
 
 app.get('/items', function (req, res) {
   items.selectAll(function(err, data) {
@@ -23,7 +38,7 @@ app.get('/items', function (req, res) {
   });
 });
 
-app.listen(3000, function() {
-  console.log('listening on port 3000!');
+app.listen(port, function() {
+  console.log(`Server listening on port: ${port}!`);
 });
 
