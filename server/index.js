@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// var items = require('../database-mysql');
 const items = require('../database-mongo');
 const axios = require('axios');
 const api = require('../config.js');
@@ -18,11 +17,11 @@ app.get(`/attractions/:city`, (req, res) => {
     url: `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${req.params.city}+point+of+interest&key=${api.GOOGLE_API_KEY}`
   })
     .then(data => {
-      console.log('server data>>>>>>>', data)
+      // console.log('server data>>>>>>>', data)
       res.status(200).send(data.data.results);
     })
     .catch(error => {
-      console.log('server error>>>>>>>', error)
+      // console.log('server error>>>>>>>', error)
       res.status(500).send(error);
     });
 });

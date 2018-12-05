@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 // import axios from 'axios';
 
 // const { API_KEY } = process.env
@@ -22,10 +22,10 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Destination City</h3>
-        <input placeholder="Search for destination" onChange={(e) => this.handleInputChange(e)} />
-        <input type='button' value='Submit' onClick={() => { this.props.getPlaces(this.state.query) }} />
+      <div className='container-search'>
+        {/* <h3>Destination City</h3> */}
+        <input className='search' placeholder="Search for destination" onChange={(e) => this.handleInputChange(e)} />
+        <button role='button' className="ui icon button" value='Submit' onClick={() => { this.props.getPlaces(this.state.query) }} >Search</button>
         {/* <p>{this.state.query}</p> */}
       </div>
     )
@@ -34,8 +34,9 @@ class Search extends Component {
 
 export default Search
 
-// this.state.query
-// ref={input => this.search = input}
+
+
+
 
 // getInfo() {
 //   axios.get(`${API_URL}?api_key=${API_KEY}&prefix=${this.state.query}&limit=7`)
@@ -46,15 +47,3 @@ export default Search
 //     })
 // }
 
-
-// handleInputChange() {
-//   this.setState({
-//     query: this.search.value
-//   }, () => {
-//     if (this.state.query && this.state.query.length > 1) {
-//       if (this.state.query.length % 2 === 0) {
-//         this.getInfo()
-//       }
-//     } 
-//   })
-// }

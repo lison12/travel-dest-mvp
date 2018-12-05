@@ -19,10 +19,16 @@ const ListItem = (props) => {
     image = <img src={imageURL} />;
   }
   return (
-    <div>
-      { props.item.name }
-      { 'Rating' + props.item.rating }
-      { image }
+    <div className='main-flex'>
+      <div>
+        { image }
+      </div>
+      <div className='list-text'>
+        { props.item.name }
+      </div>
+      <div className='list-text'>
+        { 'Rating' + '  ' + props.item.rating }
+      </div>
     </div>
   )
 }

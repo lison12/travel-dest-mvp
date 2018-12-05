@@ -1,7 +1,5 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
 import axios from 'axios';
-import $ from 'jquery';
 import List from './List.jsx';
 import Search from './Search.jsx';
 
@@ -44,12 +42,12 @@ class App extends React.Component {
 
   
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <div>
-        <h1>Travel Destination</h1>  
-        <Search getPlaces={ this.getPlaces }/>
-        <h2>Attractions List in { this.state.city }</h2>
+        <h1 style={{textAlign: 'center'}}>Travel Destination</h1>  
+        <Search getPlaces={ this.getPlaces } />
+        <h2 style={{textAlign: 'center'}}>Attractions List in { this.state.city }</h2>
         <List items={ this.state.items }/>
       </div>
     )
@@ -60,8 +58,6 @@ export default App;
 
 
 // https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo_reference}&key=${api.GOOGLE_API_KEY}
-
-// https://maps.googleapis.com/maps/api/place/textsearch/json?query=san+francisco+point+of+interest&key=AIzaSyB7O1vC4xHhghzoU8bzIwIhBbNzUh85D4s
 
   // $.ajax({
     //   url: '/attractions', 

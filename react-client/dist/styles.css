@@ -1,6 +1,52 @@
-body {
+.main-body {
     margin: 0;
     padding: 0;
-    background-color: #bafae5;
+    background: url("https://i.imgur.com/goEXzU4.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /* background-color: #bafae5; */
     font-family: sans-serif;
   }
+
+.main-list {
+  /* background-color: white; */
+  width: 70%;
+  margin: auto;
+  /* text-align: center; */
+}  
+
+.main-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: auto;
+  max-width: 90%;
+  /* text-align: center; */
+  font-weight: bold;
+  border-style: solid;
+  border-radius: 3px;
+  border-color: lightgray;
+  background-color: rgba(211, 211, 211, 0.6);
+  padding: 8px;
+  margin: 5px;
+  /* text-align: center; */
+}
+
+.list-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px;
+  font-size: 18px;
+}
+
+.search {
+  height: 40px;
+  width: 300px;
+  padding: 5px;
+}
+.container-search {
+  display: flex;
+  justify-content: center;
+}
